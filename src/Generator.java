@@ -14,5 +14,11 @@ import java.util.*;
 
 public class Generator {
     public static void main(String[] args) {
+        //#1 prompt user for file name
+        //#2 check if indicated file exists
+        //#3 rename file to html - regardless of file type
+        //#4 check if indicated file is null (empty)
+        //#5 read each line and painstakingly add html tags
+
     }
 }
