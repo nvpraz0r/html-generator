@@ -12,6 +12,9 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * This class converts files to HTML
+*/
 public class Generator {
     public static void main(String[] args) {
         //#1 prompt user for file name
@@ -19,6 +22,27 @@ public class Generator {
         //#3 rename file to html - regardless of file type
         //#4 check if indicated file is null (empty)
         //#5 read each line and painstakingly add html tags
+    
+        //varibles
+        Scanner sc = new Scanner(System.in);
+        Scanner fileIn;         //input file connection
+        PrintWriter fileOut;    //HTML file connection
+        String fileNameIn;      //original file's name
+        String fileNameOut;     //new HTML file's name
+        int dotPosition;        //position of the . in target file's name
+        String line = null;     //first line from the target file (used to determine if the file is empty)
 
+        //#1 prompt user for file to convert
+        System.out.println("Enter file name or path to file, please");
+        fileNameIn = sc.nextLine();
+
+        //#2 check for indicated file existence (which is done by the try block)
+        try{
+            //
+            fileIn = new Scanner(new FileReader(fileNameIn));
+
+        }catch(FileNotFoundException e){
+            System.err.println("File not found " + e);
+        }
     }
 }
