@@ -38,8 +38,18 @@ public class Generator {
 
         //#2 check for indicated file existence (which is done by the try block)
         try{
-            //
+            //this line will throw an error if the file doesn't exist
+            //eliminating the need for an if-statement
             fileIn = new Scanner(new FileReader(fileNameIn));
+
+            //
+            dotPosition = fileNameIn.lastIndexOf(".");
+
+            if(dotPosition == -1){
+
+            } else{
+
+            }
 
         }catch(FileNotFoundException e){
             System.err.println("File not found " + e);
