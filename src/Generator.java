@@ -63,7 +63,7 @@ public class Generator {
             //connect to indicated file
             fileOut = new PrintWriter(fileNameOut);
 
-            //
+            //catch any errors
             try {
                 //read first line
                 line = fileIn.nextLine();
@@ -75,11 +75,41 @@ public class Generator {
             if(line == null){
                 System.out.println("The indicated file is blank");
             } else {
-                //#5
+                //#5 insert html tags
+                fileOut.println("<html>");
+                fileOut.println("<head>");
+                fileOut.println("</head>");
+                fileOut.println("<body>");
+
+                //dump first line
+                //there's already data in the PrintWriter might as well use it 
+                fileOut.println(line);
+
+                //self-explanitory
+                while(fileIn.hasNextLine()){
+                    //insert break to separate lines
+                    fileOut.println("<br>");
+
+                    //get next line
+                    line = fileIn.nextLine();
+
+                    //
+                    if(line.isEmpty()){
+                        //print a blank line
+                        fileOut.println("<br>");
+                    } else {
+                        //print the line
+                        fileOut.println(line);
+                    }
+                }
+                //close html tags when the while loop
+                fileOut.println("</body>");
+                fileOut.println("</html>");
             }
 
-            //close
+            //close writers, and scanners
             sc.close();
+            fileIn.close();
             fileOut.close();
 
         }catch(FileNotFoundException e){
