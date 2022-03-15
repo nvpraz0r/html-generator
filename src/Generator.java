@@ -7,6 +7,9 @@
  *  -Find indicated file
  *  -Then convert the file to HTML
  *  -Followed by generating the contents of the file into the format of an HTML file
+ * 
+ * Use spring boot to prompt user to find a file
+ * then show the contents on a webpage??
 */
 
 import java.io.*;
@@ -74,6 +77,10 @@ public class Generator {
             } else {
                 //#5
             }
+
+            //close
+            sc.close();
+            fileOut.close();
 
         }catch(FileNotFoundException e){
             System.err.println("File not found " + e);
