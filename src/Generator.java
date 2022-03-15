@@ -42,13 +42,37 @@ public class Generator {
             //eliminating the need for an if-statement
             fileIn = new Scanner(new FileReader(fileNameIn));
 
-            //
+            //#3 rename file
+
+            //search for a period in the file name
             dotPosition = fileNameIn.lastIndexOf(".");
 
+            //if no dot exists (it will return -1)
             if(dotPosition == -1){
+                //add .html to the end of the file name
+                //if no dot exists
+                fileNameOut = fileNameIn + (".html");
+            } else {
+                //fileNameOut is equal to the starting position of fileNameIn
+                //ending at dotPosition and add ".html" to the end
+                fileNameOut = fileNameIn.substring(0, dotPosition) + ".html";
+            }
+            //connect to indicated file
+            fileOut = new PrintWriter(fileNameOut);
 
-            } else{
+            //
+            try {
+                //read first line
+                line = fileIn.nextLine();
+            } catch(NoSuchElementException e) {
+                System.err.println("Error " + e.getMessage());
+            }
 
+            //#4 check if the indicated file is null
+            if(line == null){
+                System.out.println("The indicated file is blank");
+            } else {
+                //#5
             }
 
         }catch(FileNotFoundException e){
