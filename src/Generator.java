@@ -10,6 +10,9 @@
  * 
  * Use spring boot to prompt user to find a file
  * then show the contents on a webpage??
+ * 
+ * if file doesn't exist prompt to create it
+ * add a GUI?
 */
 
 import java.io.*;
@@ -74,7 +77,9 @@ public class Generator {
             //#4 check if the indicated file is null
             if(line == null){
                 System.out.println("The indicated file is blank");
-            } else {
+            }
+            //if the file is not null
+            if(line != null){
                 //#5 insert html tags
                 fileOut.println("<html>");
                 fileOut.println("<head>");
