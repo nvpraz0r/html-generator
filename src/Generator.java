@@ -33,14 +33,13 @@ public class Generator {
         Scanner sc = new Scanner(System.in);
         Scanner fileIn;         //input file connection
         PrintWriter fileOut;    //HTML file connection
-        String fileNameIn;      //original file's name
         String fileNameOut;     //new HTML file's name
         int dotPosition;        //position of the . in target file's name
         String line = null;     //first line from the target file (used to determine if the file is empty)
 
         //#1 prompt user for file to convert
-        System.out.println("Enter file name or path to file, please");
-        fileNameIn = sc.nextLine();
+        System.out.println("Enter file name and file type or path to file, please");
+        String fileNameIn = sc.nextLine();  //original file's name
 
         //#2 check for indicated file existence (which is done by the try block)
         try{
@@ -78,6 +77,7 @@ public class Generator {
             if(line == null){
                 System.out.println("The indicated file is blank");
             }
+
             //if the file is not null
             if(line != null){
                 //#5 insert html tags
@@ -90,7 +90,7 @@ public class Generator {
                 //there's already data in the PrintWriter might as well use it 
                 fileOut.println(line);
 
-                //self-explanitory
+                //while there is data in the file, continue
                 while(fileIn.hasNextLine()){
                     //insert break to separate lines
                     fileOut.println("<br>");
